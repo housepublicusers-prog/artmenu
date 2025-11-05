@@ -194,17 +194,7 @@
     modal.setAttribute("aria-hidden", "true");
   });
 
-  // ===== IMAGE PROTECTION =====
-  thumbs.forEach(img => {
-    // Disable right-click
-    img.addEventListener('contextmenu', e => e.preventDefault());
-
-    // Disable dragging
-    img.addEventListener('dragstart', e => e.preventDefault());
-
-    // Disable long-press saving on mobile
-    img.addEventListener('touchstart', e => e.preventDefault());
-  });
+  
 </script>
 
 </body>
