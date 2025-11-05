@@ -1,0 +1,276 @@
+:root {
+  --bg: #fafafa;
+  --accent: #111;
+  --muted: #9b9b9b;
+  --card: #fff;
+  --radius: 14px;
+  --maxw: 420px;
+  --highlight: #f7f8fc;
+  --blue: #48adff;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background: radial-gradient(circle at top left, #fdfdfd 0%, #f2f4f8 40%, #e9edf5 100%);
+  color: var(--accent);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  padding: 20px 14px 70px;
+  background-attachment: fixed;
+}
+
+/* Frame container */
+.frame {
+  width: 100%;
+  max-width: var(--maxw);
+  flex: 1;
+}
+
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%; /* smoother round shape */
+  background: transparent; /* no background box */
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+/* On hover, subtle movement */
+.back-btn:hover {
+  transform: translateX(-2px);
+}
+
+/* On click (active), glow/shadow around the arrow itself */
+.back-btn:active img {
+  filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.4));
+}
+
+/* Remove any unwanted focus ring */
+.back-btn:focus {
+  outline: none;
+}
+
+/* Arrow image sizing */
+.back-btn img {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+
+
+/* Header (Tier 1 title box) */
+header {
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: 0 6px 18px rgba(10, 10, 20, 0.033);
+  padding: 18px 14px;
+  text-align: center;
+  margin-bottom: 14px;
+}
+
+h1 {
+  font-size: 22px;
+  font-weight: 900;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  letter-spacing: 1px;
+}
+
+.sub {
+  margin-top: 6px;
+  color: var(--muted);
+  font-weight: 500;
+  font-size: 14px;
+}
+
+/* Cards (Unified section look) */
+.card {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 14px;
+  margin-bottom: 12px;
+  box-shadow: 0 10px 30px rgba(15,15,30,0.03);
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+
+.highlight {
+  background: var(--highlight);
+}
+
+/* “Grouped” cards visually connected */
+.grouped {
+  margin-top: -4px; /* subtly overlaps shadow edge */
+  border-top: 1px solid rgba(0,0,0,0.04);
+}
+.grouped:first-of-type {
+  margin-top: 0;
+}
+/* Tier layout */
+.tier-body {
+  display: grid;
+  grid-template-columns: 1fr 120px;
+  gap: 60px;
+  align-items: start;
+}
+
+/* single-column variant when there's no image */
+.tier-body.single {
+  display: block;
+  text-align: left;
+}
+
+/* refined justified text styling */
+.tier-desc {
+  font-size: 14px;
+  line-height: 1.6;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  word-spacing: 0.01em;
+  color: var(--accent);
+  margin-bottom: 10px;
+  text-rendering: optimizeLegibility;
+}
+
+/* Note list refinements */
+.note-list {
+  margin: 6px 0 0 16px;
+  padding: 0;
+  list-style-type: disc;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.note-list li {
+  margin-bottom: 4px;
+}
+
+/* subtle note text */
+.note {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 12px;
+  font-style: italic;
+}
+
+
+/* Gallery */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 10px;
+  margin-top: 12px;
+}
+.gallery img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.026);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+.gallery img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 22px rgba(0,0,0,0.1);
+}
+/* Before You Buy title (inside tier-head) */
+.details-card .tier-head .tier-title {
+  font-weight: 400;        /* thicker/bolder title */
+  font-size: 16.2px;         /* optional: slightly larger */
+  letter-spacing: 0.5px;   /* subtle spacing for clarity */
+  margin-bottom: 10px;     /* space below the title */
+}
+
+/* Add spacing to the description below the title */
+.details-card .tier-desc {
+  margin-top: 10px;        /* separates from the title area */
+}
+
+/* Notes */
+.note-list {
+  margin: 8px 0 0 18px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.4;
+}
+.note-list li { margin-bottom: 4px; }
+.note {
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 8px;
+}
+
+.email-link {
+  color: inherit;           /* matches surrounding text color */
+  text-decoration: none; /* optional: keeps it clear it's a link */
+  font-weight: 550;          /* slightly bold for emphasis */
+  transition: color 0.2s ease;
+}
+
+.email-link:hover {
+  color: var(--accent);      /* or any accent color you use */
+  text-decoration: none;     /* cleaner on hover */
+}
+
+/* Footer */
+.copyright {
+  width: 100%;
+  max-width: var(--maxw);
+  text-align: center;
+  color: var(--muted);
+  font-size: 12px;
+  padding: 20px 0;
+  margin-top: auto;
+}
+.copyright a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.copyright a:hover {
+  color: var(--blue);
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(10,10,20,0.6);
+  z-index: 100;
+}
+.modal.show { display: flex; }
+.modal img {
+  max-width: 92%;
+  max-height: 84%;
+  border-radius: 10px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+}
+
+/* Responsive */
+@media (max-width: 420px) {
+  .tier-body {
+    grid-template-columns: 1fr 100px;
+  }
+  .thumb {
+    width: 100px;
+    height: 100px;
+  }
+}

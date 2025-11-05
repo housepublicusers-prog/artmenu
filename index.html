@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>BadRobbie Art Menu</title>
+  <link rel="icon" type="image/png" href="logo.png" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!--  Age Verification Overlay -->
+  <div id="age-overlay" class="age-overlay">
+    <div class="age-box">
+    
+      <h2>Adult Content Warning</h2>
+       <img src="18plus.png" alt="18+ Warning" class="age-img" />
+      <p>
+  This website contains artistic material intended for mature audiences (18+).
+</p>
+<p>
+  By clicking “Yes,” you confirm that you are at least 18 years old.
+</p>
+
+      <div class="age-buttons">
+        <button id="confirm-yes" class="age-btn yes">I am 18 or older</button>
+        <button id="confirm-no" class="age-btn no">No, take me out</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="frame" role="main">
+    <header>
+      <h1>BADROBBIE STUDIOS</h1>
+      <div class="sub">2026 Art Menu</div>
+    </header>
+
+    <!-- Tier 1 -->
+    <section class="card" id="tier1">
+      <div class="tier-head">
+        <div class="tier-title">Tier 1</div>
+        <div class="price-badge">$70 - $120</div>
+      </div>
+      <div class="tier-body">
+        <div>
+          <p class="tier-desc">
+            No Background<br>
+            5 Color Palette*<br>
+            Single Pose
+          </p>
+          <div class="note">*price subject to change based on character complexity</div>
+          <a href="tier1.html" class="btn">View</a>
+        </div>
+        <div class="thumb">
+          <img src="Pic1.PNG" alt="Tier 1 example">
+        </div>
+      </div>
+    </section>
+
+    <!-- Tier 2 -->
+    <section class="card" id="tier2">
+      <div class="tier-head">
+        <div class="tier-title">Tier 2</div>
+        <div class="price-badge">$120 - $300</div>
+      </div>
+      <div class="tier-body">
+        <div>
+          <p class="tier-desc">
+            Single Scene*<br>
+            Two Characters*
+          </p>
+          <div class="note">
+            *price subject to change based on scene complexity<br>
+            *$80 per additional character
+          </div>
+          <a href="tier2.html" class="btn">View</a>
+        </div>
+        <div class="thumb">
+          <img src="Pic2.PNG" alt="Tier 2 example">
+        </div>
+      </div>
+    </section>
+
+    <!-- Tier 3 -->
+    <section class="card" id="tier3">
+      <div class="tier-head">
+        <div class="tier-title">Tier 3</div>
+        <div class="price-badge">$300 - $500</div>
+      </div>
+      <div class="tier-body">
+        <div>
+          <p class="tier-desc">
+            Multiple Scenes*<br>
+            Two Characters*
+          </p>
+          <div class="note">
+            *up to 4 scenes [$100 per additional scene]<br>
+            *price subject to change based on character complexity
+          </div>
+          <a href="tier3.html" class="btn">View</a>
+        </div>
+        <div class="thumb">
+          <img src="Pic3.PNG" alt="Tier 3 example">
+        </div>
+      </div>
+    </section>
+
+    <!-- Extra Products Section -->
+    <div class="icons-box">
+      <a href="extraproducts.html" class="icons-link">
+        <div class="icons-header">
+          <h2>Extra Products</h2>
+        </div>
+        <div class="icons-row">
+          <div class="icon-item">
+            <img src="pfp.PNG" alt="Profile Icon">
+            <div>Pfp Icons</div>
+          </div>
+          <div class="icon-item">
+            <img src="1.png" alt="Stickers Icon">
+            <div>Stickers</div>
+          </div>
+          <div class="icon-item">
+            <img src="drawover.png" alt="Draw Overs Icon">
+            <div>Draw Overs</div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="copyright">
+    ©2026 BadRobbie Studios • 
+    <a href="terms.html">Terms and Conditions</a> • 
+    <a href="help.html">Help Hub</a>
+  </div>
+
+  <!-- Image Modal -->
+  <div class="modal" id="modal" aria-hidden="true" role="dialog">
+    <img id="modalImg" src="" alt="Enlarged sample" />
+  </div>
+
+  <!-- Script for overlay + modal -->
+<script>
+  // ===== AGE VERIFICATION LOGIC =====
+  const overlay = document.getElementById('age-overlay');
+  const yesBtn = document.getElementById('confirm-yes');
+  const noBtn = document.getElementById('confirm-no');
+
+  // Check if user has already verified age in this browser session
+  const isVerified = sessionStorage.getItem('ageVerified');
+
+  if (isVerified === 'true') {
+    overlay.style.display = 'none'; // hide overlay if verified
+  } else {
+    overlay.style.display = 'flex'; // show overlay if not verified
+  }
+
+  yesBtn.addEventListener('click', () => {
+    // Save verification for this session only
+    sessionStorage.setItem('ageVerified', 'true');
+
+    overlay.style.transition = 'opacity 0.4s ease';
+    overlay.style.opacity = '0';
+    setTimeout(() => {
+      overlay.style.display = 'none';
+    }, 400);
+  });
+
+  noBtn.addEventListener('click', () => {
+    window.location.href = "https://gifbin.com/f/982762";
+  });
+
+  // ===== IMAGE MODAL VIEWER =====
+  const modal = document.getElementById("modal");
+  const modalImg = document.getElementById("modalImg");
+  const thumbs = document.querySelectorAll(".thumb img");
+
+  thumbs.forEach(img => {
+    img.addEventListener("click", () => {
+      modalImg.src = img.src;
+      modal.classList.add("show");
+      modal.setAttribute("aria-hidden", "false");
+    });
+  });
+
+  modal.addEventListener("click", () => {
+    modal.classList.remove("show");
+    modal.setAttribute("aria-hidden", "true");
+  });
+
+  // ===== IMAGE PROTECTION =====
+  thumbs.forEach(img => {
+    // Disable right-click
+    img.addEventListener('contextmenu', e => e.preventDefault());
+
+    // Disable dragging
+    img.addEventListener('dragstart', e => e.preventDefault());
+
+    // Disable long-press saving on mobile
+    img.addEventListener('touchstart', e => e.preventDefault());
+  });
+</script>
+
+</body>
+</html>

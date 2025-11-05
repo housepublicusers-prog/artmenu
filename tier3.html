@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tier 3 — Art Menu</title>
+   <link rel="icon" type="image/png" href="logo.png" />
+  <link rel="stylesheet" href="tier3.css" />
+</head>
+<body>
+  <div class="frame" role="main">
+
+    <!-- Back button above header -->
+    <a href="index.html" class="back-btn" title="Back to Menu">
+      <img src="arrow.png" alt="Back">
+    </a>
+
+    <!-- Header -->
+    <header>
+      <h1>Tier 3</h1>
+      <div class="sub">$300 - $500</div>
+    </header>
+
+   <!-- Overview Card -->
+<section class="card highlight">
+  <div class="tier-body single">
+    <div>
+      <p class="tier-desc">
+        Tier 3 illustrations feature dynamic, multi-scene compositions designed to capture evolving moments or narrative sequences. With up to two characters included, this tier is ideal for storytelling panels, comic-style layouts, or cinematic progressions that emphasize continuity and atmosphere across scenes.
+      </p>
+      <ul class="note-list">
+        <li>Everything in Tier 2</li>
+        <li>Up to 4 scenes</li>
+        <li>2 Characters</li>
+      </ul>
+      <div class="note">*100 per additional scene</div>
+      <div class="note">*Price subject to change based on character complexity</div>
+    </div>
+  </div>
+</section>
+
+
+
+    <!-- Gallery Section -->
+    <section class="card gallery-card grouped">
+      <div class="tier-head">
+        <div class="tier-title">Example Gallery</div>
+      </div>
+      <div class="gallery">
+        <img src="Pic3.PNG" alt="Example 1">
+        <img src="tier3b.png" alt="Example 2">
+        
+      </div>
+    </section>
+
+    <!-- Info Section -->
+    <section class="card details-card grouped">
+      <div class="tier-head">
+        <div class="tier-title">Before You Buy</div>
+      </div>
+    
+      <p class="tier-desc">
+        Every tier includes 5 props and dialouge. You’ll receive a high-resolution PNG file ready for online use. Extra options can be provided for an additional fee. Small adjustments may only be made during the initial sketching phase.
+      </p>
+      <div class="note">
+  <a href="mailto:commissions@badrobbie.art" class="email-link">Contact BadRobbie Studios</a>
+  for commissions and timelines.
+</div>
+
+    </section>
+
+    <!-- Copyright -->
+    <div class="copyright">
+      ©2026 BadRobbie Studios • 
+      <a href="terms.html">Terms and Conditions</a> • 
+      <a href="help.html">Help Hub</a>
+    </div>
+
+  </div>
+
+  <!-- Image modal -->
+  <div class="modal" id="modal" aria-hidden="true" role="dialog">
+    <img id="modalImg" src="" alt="Enlarged example" />
+  </div>
+
+  <script>
+    // Simple modal for enlarged viewing
+    const modal = document.getElementById("modal");
+    const modalImg = document.getElementById("modalImg");
+    document.querySelectorAll(".gallery img, .main-thumb img").forEach(img => {
+      img.addEventListener("click", () => {
+        modalImg.src = img.src;
+        modal.classList.add("show");
+      });
+    });
+    modal.addEventListener("click", () => modal.classList.remove("show"));
+  </script>
+</body>
+</html>
