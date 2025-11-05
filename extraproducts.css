@@ -1,0 +1,330 @@
+:root {
+  --bg: #fafafa;
+  --accent: #111;
+  --muted: #9b9b9b;
+  --card: #ffffff; /* Pure white for consistent card surfaces */
+  --radius: 14px;
+  --maxw: 420px;
+  --highlight: #f7f8fc;
+  --blue: #48adff;
+}
+
+/* Global reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Body */
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background: radial-gradient(circle at top left, #fdfdfd 0%, #f2f4f8 40%, #e9edf5 100%);
+  color: var(--accent);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  padding: 20px 14px 70px;
+  background-attachment: fixed;
+}
+
+/* Frame container */
+.frame {
+  width: 100%;
+  max-width: var(--maxw);
+  flex: 1;
+}
+
+/* Back Button ABOVE header */
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%; /* smoother round shape */
+  background: transparent; /* no background box */
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+/* On hover, subtle movement */
+.back-btn:hover {
+  transform: translateX(-2px);
+}
+
+/* On click (active), glow/shadow around the arrow itself */
+.back-btn:active img {
+  filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.4));
+}
+
+/* Remove any unwanted focus ring */
+.back-btn:focus {
+  outline: none;
+}
+
+/* Arrow image sizing */
+.back-btn img {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+
+/* Header */
+header {
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: 0 6px 18px rgba(10, 10, 20, 0.033);
+  padding: 18px 14px;
+  text-align: center;
+  margin-bottom: 14px;
+}
+
+h1 {
+  font-size: 22px;
+  font-weight: 900;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  letter-spacing: 1px;
+}
+
+.sub {
+  margin-top: 6px;
+  color: var(--muted);
+  font-weight: 500;
+  font-size: 14px;
+}
+
+/* Card Base */
+.card {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 14px;
+  margin-bottom: 12px;
+  box-shadow: 0 10px 30px rgba(15, 15, 30, 0.03);
+  overflow: hidden;
+}
+
+/* Highlighted card background (for optional lighter tone) */
+.highlight {
+  background: var(--card) !important; /* force same tone as other cards */
+}
+
+/* Grouped cards visually connected */
+.grouped {
+  margin-top: -4px;
+  border-top: 1px solid rgba(0, 0, 0, 0.04);
+}
+.grouped:first-of-type {
+  margin-top: 0;
+}
+
+/* Tier layout */
+.tier-body {
+  display: grid;
+  grid-template-columns: 1fr 120px;
+  gap: 60px;
+  align-items: start;
+}
+
+/* Single-column variant */
+.tier-body.single {
+  display: block;
+  text-align: left;
+}
+
+/* Tier description */
+.tier-desc {
+  font-size: 14px;
+  line-height: 1.6;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  color: var(--accent);
+  margin-bottom: 10px;
+  margin-top: 9%;
+}
+.tier-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+ 
+}
+
+/* Optional: make the price slightly lighter or smaller */
+.tier-title .title-right {
+  font-weight: 5000;
+  color: #000000;
+}
+
+/* Note list */
+.note-list {
+  margin: 6px 0 0 16px;
+  list-style-type: disc;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+.note-list li {
+  margin-bottom: 4px;
+}
+
+/* Subtle note text */
+.note {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 12px;
+  font-style: italic;
+}
+
+/* Gallery grid */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 10px;
+  margin-top: 37px;
+}
+
+.gallery img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+.gallery img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.1);
+}
+
+/* Product section titles */
+.tier-title {
+  font-size: 18px;
+  font-weight: 800;
+  margin-bottom: 8px;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* --- EXTRAS SECTION --- */
+.extras-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+/* Icon cards row */
+.icons-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 10px;
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: 0 10px 30px rgba(15, 15, 30, 0.03);
+  padding: 16px;
+  margin-bottom: 14px;
+}
+
+/* Individual icon card */
+.icon {
+  flex: 1;
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: 0 10px 30px rgba(15, 15, 30, 0.03);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 10px;
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Subtle hover pop */
+.icon:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 36px rgba(15, 15, 30, 0.06);
+}
+
+/* PNG icon image */
+.icon img {
+  width: 108px;
+  height: 108px;
+  object-fit: contain;
+  display: block;
+  margin-bottom: 8px;
+}
+
+/* Responsive stacking for small screens */
+@media (max-width: 420px) {
+  .icons-row {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+  .icon {
+    flex: 0 0 48%;
+    padding: 14px 8px;
+  }
+  .icon img {
+    width: 70px;
+    height: 70px;
+  }
+}
+
+/* Footer */
+.copyright {
+  width: 100%;
+  max-width: var(--maxw);
+  text-align: center;
+  color: var(--muted);
+  font-size: 12px;
+  padding: 20px 0;
+  margin-top: auto;
+}
+.copyright a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.copyright a:hover {
+  color: var(--blue);
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(10, 10, 20, 0.6);
+  z-index: 100;
+}
+.modal.show {
+  display: flex;
+}
+.modal img {
+  max-width: 92%;
+  max-height: 84%;
+  border-radius: 10px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}

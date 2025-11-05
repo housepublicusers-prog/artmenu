@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Extra Products — Art Menu</title>
+   <link rel="icon" type="image/png" href="logo.png" />
+  <link rel="stylesheet" href="extraproducts.css" />
+</head>
+<body>
+  <div class="frame" role="main">
+
+    <!-- Back button above header -->
+    <a href="index.html" class="back-btn" title="Back to Menu">
+      <img src="arrow.png" alt="Back">
+    </a>
+
+    <!-- Header -->
+    <header>
+      <h1>Extra Products</h1>
+      <div class="sub"></div>
+    </header>
+
+    <!-- PFP Icons -->
+    <section class="card highlight">
+      <div class="tier-body single">
+        <div>
+         <h2 class="tier-title">
+  <span class="title-left">Pfp Icon</span>
+  <span class="title-right">$50</span>
+</h2>
+
+          <p class="tier-desc">
+            Clean, minimalistic character portraits ideal for social media or personal branding. 
+            These compact icons emphasize shape, color harmony, and personality clarity.
+          </p>
+          <ul class="note-list">
+            <li>Single character portrait</li>
+            <li>Transparent or solid background</li>
+            <li>5 color palette</li>
+          </ul>
+          <div class="note">*Price may vary by character complexity</div>
+        </div>
+      </div>
+      <div class="gallery">
+        <img src="pfp.PNG" alt="Example PFP 1">
+        <img src="pfp2.png" alt="Example PFP 2">
+      </div>
+    </section>
+
+    <!-- Stickers -->
+    <section class="card grouped">
+      <div class="tier-body single">
+        <div>
+          <h2 class="tier-title">
+  <span class="title-left">Stickers</span>
+  <span class="title-right">2 / $60</span>
+</h2>
+          <p class="tier-desc">
+            Expressive, playful character stickers perfect for chats, servers, or merchandise. 
+            Each piece captures a distinct emotion or pose designed for easy recognition and charm.
+          </p>
+          <ul class="note-list">
+            <li>Pack of single character stickers</li>
+            <li>Clean outlines and color consistency</li>
+            <li>Delivered as high quality PNGs</li>
+          </ul>
+          <div class="note">*Price may vary by design complexity</div>
+        </div>
+      </div>
+      <div class="gallery">
+        <img src="1.png" alt="Sticker Example 1">
+        <img src="sticker2.png" alt="Sticker Example 2">
+      </div>
+    </section>
+
+    <!-- Draw Overs -->
+    <section class="card grouped">
+      <div class="tier-body single">
+        <div>
+          <h2 class="tier-title">
+  <span class="title-left">Draw Overs</span>
+  <span class="title-right">$50</span>
+</h2>
+          <p class="tier-desc">
+            Personalized drawovers created directly on your provided picture, reimagined in the artist’s signature style.
+          </p>
+          <ul class="note-list">
+            <li>Overlay on client provided picture</li>
+  <li>5 color palette</li>
+            <li>Delivered as high quality PNG.</li>
+          </ul>
+          <div class="note">*Price may vary by detail level</div>
+        </div>
+      </div>
+      <div class="gallery">
+        <img src="drawover.PNG" alt="Draw Over Example 1">
+        <img src="drawover2.png" alt="Draw Over Example 2">
+      </div>
+    </section>
+
+    <!-- Copyright -->
+    <div class="copyright">
+      ©2026 BadRobbie Studios • 
+      <a href="terms.html">Terms and Conditions</a> • 
+      <a href="help.html">Help Hub</a>
+    </div>
+  </div>
+
+  <!-- Image Modal -->
+  <div class="modal" id="modal" aria-hidden="true" role="dialog">
+    <img id="modalImg" src="" alt="Enlarged example" />
+  </div>
+
+  <script>
+    // Simple modal for enlarged viewing
+    const modal = document.getElementById("modal");
+    const modalImg = document.getElementById("modalImg");
+    document.querySelectorAll(".gallery img").forEach(img => {
+      img.addEventListener("click", () => {
+        modalImg.src = img.src;
+        modal.classList.add("show");
+      });
+    });
+    modal.addEventListener("click", () => modal.classList.remove("show"));
+  </script>
+</body>
+</html>
